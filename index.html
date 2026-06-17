@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para mis ojitos de capullo 🌸</title>
+  <title>Para mis ojitos de Capulí 🌸</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap');
 
@@ -31,6 +31,8 @@
       justify-content: center;
       z-index: 9999;
       gap: 0;
+      padding: 2rem;
+      text-align: center;
     }
 
     .lock-icon { font-size: 3.5rem; margin-bottom: 1rem; animation: flotar 3s ease-in-out infinite; }
@@ -42,17 +44,19 @@
 
     .lock-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.2rem, 5vw, 1.8rem);
+      font-size: clamp(1.1rem, 4.5vw, 1.6rem);
       color: #ffd6ec;
-      margin-bottom: 0.4rem;
-      text-align: center;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+      max-width: 320px;
     }
 
     .lock-sub {
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 3vw, 0.95rem);
       color: #cc7aaa;
       margin-bottom: 2rem;
       font-style: italic;
+      max-width: 280px;
     }
 
     .lock-input {
@@ -173,10 +177,6 @@
       transform: translateX(-110%);
     }
 
-    .page.enter-from-left {
-      transform: translateX(-110%);
-    }
-
     /* ===================== PORTADA ===================== */
     #page1 {
       background: radial-gradient(ellipse at 50% 40%, #5a0038 0%, #1a0010 70%);
@@ -201,7 +201,12 @@
       50% { opacity: 1; }
     }
 
-    .portada-luna { font-size: 4rem; margin-bottom: 0.5rem; animation: flotar 4s ease-in-out infinite; filter: drop-shadow(0 0 20px rgba(255,200,150,0.6)); }
+    .portada-luna {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      animation: flotar 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255,200,150,0.6));
+    }
 
     .portada-titulo {
       font-family: 'Playfair Display', serif;
@@ -232,12 +237,48 @@
       text-align: center;
     }
 
+    /* LISTÓN DE REGALO */
+    .ribbon-btn-wrap {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .ribbon-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: -2px;
+    }
+
+    .ribbon-loop {
+      width: 38px;
+      height: 26px;
+      border-radius: 50% 50% 0 0;
+      border: 3px solid #e84393;
+      border-bottom: none;
+      background: rgba(232,67,147,0.15);
+    }
+
+    .ribbon-knot {
+      width: 14px;
+      height: 14px;
+      background: #e84393;
+      border-radius: 50%;
+      margin-bottom: 0;
+      box-shadow: 0 0 10px rgba(232,67,147,0.6);
+      z-index: 1;
+    }
+
     .btn-abrir {
       background: linear-gradient(135deg, #e84393, #c0206a);
       color: white;
       border: none;
-      padding: 1rem 2.8rem;
-      border-radius: 999px;
+      padding: 0.95rem 2.8rem;
+      border-radius: 12px;
       font-size: 1.05rem;
       font-family: 'Playfair Display', serif;
       cursor: pointer;
@@ -245,6 +286,7 @@
       position: relative;
       overflow: hidden;
       transition: transform 0.2s;
+      letter-spacing: 0.5px;
     }
 
     .btn-abrir::before {
@@ -252,17 +294,30 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-      border-radius: 999px;
     }
+
+    /* CINTAS VERTICALES DEL LISTÓN */
+    .ribbon-v {
+      position: absolute;
+      top: 26px;
+      width: 3px;
+      height: calc(100% - 26px);
+      background: #e84393;
+      opacity: 0.7;
+    }
+    .ribbon-v.left { left: calc(50% - 24px); }
+    .ribbon-v.right { right: calc(50% - 24px); }
 
     .btn-abrir:hover { transform: scale(1.06); }
     .btn-abrir:active { transform: scale(0.97); }
 
     .portada-firma {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      color: rgba(255,150,200,0.4);
+      font-family: 'Playfair Display', serif;
       font-style: italic;
+      font-size: clamp(0.85rem, 2.8vw, 1rem);
+      color: #ffaacc;
+      margin-top: 0.2rem;
+      text-align: center;
     }
 
     /* ===================== PÁGINAS FOTO ===================== */
@@ -316,6 +371,7 @@
     /* ===================== PÁGINA FINAL ===================== */
     #page4 {
       background: radial-gradient(ellipse at 50% 40%, #5a0038 0%, #0d0008 70%);
+      cursor: pointer;
     }
 
     .cierre-foto {
@@ -327,6 +383,7 @@
       box-shadow: 0 0 0 6px rgba(232,67,147,0.15), 0 0 40px rgba(232,67,147,0.4);
       margin-bottom: 1.2rem;
       animation: glow-foto 2.5s ease-in-out infinite;
+      cursor: pointer;
     }
 
     @keyframes glow-foto {
@@ -362,6 +419,19 @@
       font-size: 2.2rem;
       animation: pulse-heart 1.5s ease-in-out infinite;
       margin-top: 0.8rem;
+    }
+
+    .tap-hint-final {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: rgba(255,150,200,0.35);
+      font-style: italic;
+      animation: pulse-hint 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-hint {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.7; }
     }
 
     /* ===================== NAVEGACIÓN ===================== */
@@ -438,52 +508,48 @@
       85% { opacity: 1; }
       100% { transform: translateY(108vh) rotate(420deg); opacity: 0; }
     }
-
-    /* ===================== HINT SWIPE ===================== */
-    .swipe-hint {
-      position: fixed;
-      bottom: 6.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,150,200,0.35);
-      font-size: 0.75rem;
-      font-style: italic;
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 10;
-    }
   </style>
 </head>
 <body>
 
-<!-- ESTRELLAS FONDO -->
 <div id="stars"></div>
 
 <!-- PANTALLA CONTRASEÑA -->
 <div id="lock-screen">
-  <div class="lock-icon">🔒</div>
-  <h2 class="lock-title">Este libro tiene dueña</h2>
-  <p class="lock-sub">¿Cuál es tu apodo especial?</p>
+  <div class="lock-icon">🌸</div>
+  <h2 class="lock-title">Para la niña con los ojos más bonitos del universo</h2>
+  <p class="lock-sub">Pon el nombre de quien nos acompaña a mimir</p>
   <input class="lock-input" id="pass-input" type="text" placeholder="escribe aquí..." maxlength="10" autocomplete="off"/>
   <button class="lock-btn" onclick="checkPass()">Entrar 💖</button>
   <p class="lock-error" id="lock-error"></p>
 </div>
 
-<!-- MÚSICA -->
 <audio id="musica" src="musica.mp3" loop preload="auto"></audio>
 
-<!-- LIBRO -->
 <div id="book-container">
 
   <!-- PÁGINA 1: PORTADA -->
   <div class="page active" id="page1">
     <div class="stars-portada" id="stars-portada"></div>
     <div class="portada-luna">🌙</div>
-    <h1 class="portada-titulo">Para mis ojitos<br>de capullo</h1>
+    <h1 class="portada-titulo">Para mis ojitos<br>de Capulí</h1>
     <div class="portada-corazon">💖</div>
     <p class="portada-sub">Un libro solo para ti, Treyzi ✨</p>
-    <button class="btn-abrir" onclick="nextPage()">Abrir mi regalo 🌸</button>
-    <p class="portada-firma">con todo mi amor — Alex</p>
+
+    <div class="ribbon-btn-wrap">
+      <div class="ribbon-top">
+        <div class="ribbon-loop"></div>
+        <div class="ribbon-knot"></div>
+        <div class="ribbon-loop"></div>
+      </div>
+      <div style="position:relative;">
+        <div class="ribbon-v left"></div>
+        <div class="ribbon-v right"></div>
+        <button class="btn-abrir" onclick="nextPage()">Ábrelo 🎀</button>
+      </div>
+    </div>
+
+    <p class="portada-firma">te amo con todo mi corazón 💗</p>
   </div>
 
   <!-- PÁGINA 2: FOTO JUNTOS -->
@@ -513,7 +579,7 @@
   </div>
 
   <!-- PÁGINA 4: CIERRE -->
-  <div class="page" id="page4">
+  <div class="page" id="page4" onclick="handleFinalTap()">
     <div class="cierre-foto">
       <img src="FOTO_TRE_3.jpeg" alt="Treyzi"/>
     </div>
@@ -521,17 +587,17 @@
     <p class="cierre-frase">"Te amo hoy, mañana<br>y todos los días que siguen."</p>
     <p class="cierre-firma">— Alex 💌</p>
     <div class="corazones">💖 💕 💖</div>
+    <p class="tap-hint-final">toca para más flores 🌸</p>
   </div>
 
 </div>
 
-<!-- FLECHAS NAVEGACIÓN -->
+<!-- FLECHAS -->
 <div class="nav-arrows">
   <button class="nav-btn" id="btn-prev" onclick="prevPage()" disabled>‹</button>
   <button class="nav-btn" id="btn-next" onclick="nextPage()">›</button>
 </div>
 
-<!-- PUNTOS -->
 <div class="page-dots">
   <div class="dot active" id="dot0"></div>
   <div class="dot" id="dot1"></div>
@@ -540,7 +606,6 @@
 </div>
 
 <div class="page-num" id="pageNum">1 / 4</div>
-<div class="swipe-hint" id="swipeHint">desliza o usa las flechas</div>
 
 <script>
   // ESTRELLAS FONDO
@@ -572,8 +637,6 @@
   }
 
   // CONTRASEÑA
-  const PASSWORD = 'Monchi';
-
   document.getElementById('pass-input').addEventListener('keydown', e => {
     if (e.key === 'Enter') checkPass();
   });
@@ -582,7 +645,7 @@
     const val = document.getElementById('pass-input').value;
     const errEl = document.getElementById('lock-error');
     const inp = document.getElementById('pass-input');
-    if (val === PASSWORD) {
+    if (val === 'Monchi') {
       document.getElementById('lock-screen').classList.add('hide');
       setTimeout(() => {
         document.getElementById('lock-screen').style.display = 'none';
@@ -625,12 +688,16 @@
   function nextPage() { goTo(current + 1, 'next'); }
   function prevPage() { goTo(current - 1, 'prev'); }
 
+  // TOQUE EN PÁGINA FINAL → más flores
+  function handleFinalTap() {
+    spawnPetals(22);
+  }
+
   function updateUI() {
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
     document.getElementById('pageNum').textContent = (current + 1) + ' / ' + pages.length;
     document.getElementById('btn-prev').disabled = current === 0;
     document.getElementById('btn-next').disabled = current === pages.length - 1;
-    document.getElementById('swipeHint').style.opacity = current === pages.length - 1 ? '0' : '1';
   }
 
   // SWIPE
@@ -638,8 +705,9 @@
   document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
     const dx = startX - e.changedTouches[0].clientX;
-    if (dx > 50) nextPage();
-    else if (dx < -50) prevPage();
+    if (Math.abs(dx) < 30) return;
+    if (dx > 30) nextPage();
+    else prevPage();
   });
 
   // PÉTALOS
@@ -656,7 +724,7 @@
         p.style.animationDuration = dur + 's';
         document.body.appendChild(p);
         setTimeout(() => p.remove(), dur * 1000 + 100);
-      }, i * 130);
+      }, i * 100);
     }
   }
 </script>
