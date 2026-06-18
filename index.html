@@ -24,18 +24,17 @@
     #lock-screen {
       position: fixed;
       inset: 0;
-      background: radial-gradient(ellipse at center, #3d0028 0%, #0d0008 70%);
+      background: radial-gradient(ellipse at center, #2a0022 0%, #0d0008 70%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      gap: 0;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
     }
 
-    .lock-icon { font-size: 3.5rem; margin-bottom: 1rem; animation: flotar 3s ease-in-out infinite; }
+    .lock-icon { font-size: 3rem; margin-bottom: 1.2rem; animation: flotar 3s ease-in-out infinite; }
 
     @keyframes flotar {
       0%, 100% { transform: translateY(0); }
@@ -44,28 +43,28 @@
 
     .lock-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.1rem, 4.5vw, 1.6rem);
-      color: #ffd6ec;
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-      max-width: 320px;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      color: #f7d6e8;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      max-width: 300px;
+      font-style: italic;
     }
 
     .lock-sub {
-      font-size: clamp(0.8rem, 3vw, 0.95rem);
-      color: #cc7aaa;
-      margin-bottom: 2rem;
+      font-size: clamp(0.78rem, 3vw, 0.9rem);
+      color: #c9a0bc;
+      margin-bottom: 1.2rem;
       font-style: italic;
-      max-width: 280px;
     }
 
     .lock-input {
-      background: rgba(255,255,255,0.08);
-      border: 1.5px solid rgba(232,67,147,0.4);
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(210,130,170,0.45);
       border-radius: 999px;
       padding: 0.8rem 1.8rem;
-      font-size: 1.1rem;
-      color: #ffd6ec;
+      font-size: 1.05rem;
+      color: #f7d6e8;
       text-align: center;
       outline: none;
       width: 220px;
@@ -75,8 +74,8 @@
       transition: border 0.3s;
     }
 
-    .lock-input:focus { border-color: #e84393; }
-    .lock-input.error { border-color: #ff4444; animation: shake 0.4s ease; }
+    .lock-input:focus { border-color: #d97aaa; }
+    .lock-input.error { border-color: #ff6666; animation: shake 0.4s ease; }
 
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
@@ -85,7 +84,7 @@
     }
 
     .lock-btn {
-      background: #e84393;
+      background: linear-gradient(135deg, #d97aaa, #b85a8a);
       color: white;
       border: none;
       padding: 0.75rem 2.2rem;
@@ -93,7 +92,7 @@
       font-size: 1rem;
       cursor: pointer;
       font-family: 'Lato', sans-serif;
-      box-shadow: 0 4px 20px rgba(232,67,147,0.4);
+      box-shadow: 0 4px 20px rgba(185,100,150,0.35);
       transition: transform 0.15s;
     }
 
@@ -102,8 +101,8 @@
 
     .lock-error {
       margin-top: 0.8rem;
-      color: #ff6b6b;
-      font-size: 0.85rem;
+      color: #ff8888;
+      font-size: 0.82rem;
       min-height: 1.2rem;
       font-style: italic;
     }
@@ -113,87 +112,54 @@
       pointer-events: none;
     }
 
-    @keyframes fadeOut {
-      to { opacity: 0; transform: scale(1.05); }
-    }
+    @keyframes fadeOut { to { opacity: 0; transform: scale(1.04); } }
 
-    /* ===================== ESTRELLAS FONDO ===================== */
-    #stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
+    /* ===================== ESTRELLAS ===================== */
+    #stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
 
     .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
+      position: absolute; width: 2px; height: 2px;
+      background: white; border-radius: 50%;
       animation: twinkle linear infinite;
     }
 
     @keyframes twinkle {
       0%, 100% { opacity: 0.1; }
-      50% { opacity: 0.9; }
+      50% { opacity: 0.8; }
     }
 
     /* ===================== LIBRO ===================== */
     #book-container {
-      width: 100vw;
-      height: 100vh;
+      width: 100vw; height: 100vh;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       z-index: 1;
     }
 
     .page {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem;
-      opacity: 0;
-      transform: translateX(100%);
+      position: absolute; width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2rem 1.8rem;
+      opacity: 0; transform: translateX(100%);
       transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
       pointer-events: none;
+      text-align: center;
     }
 
-    .page.active {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: all;
-    }
-
-    .page.exit-left {
-      opacity: 0;
-      transform: translateX(-110%);
-    }
+    .page.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+    .page.exit-left { opacity: 0; transform: translateX(-110%); }
 
     /* ===================== PORTADA ===================== */
     #page1 {
-      background: radial-gradient(ellipse at 50% 40%, #5a0038 0%, #1a0010 70%);
+      background: radial-gradient(ellipse at 50% 40%, #4a0030 0%, #1a0010 70%);
     }
 
-    .stars-portada {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+    .stars-portada { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 
     .star-p {
-      position: absolute;
-      font-size: 0.7rem;
-      animation: twinkle-p linear infinite;
-      opacity: 0;
+      position: absolute; font-size: 0.7rem;
+      animation: twinkle-p linear infinite; opacity: 0;
     }
 
     @keyframes twinkle-p {
@@ -202,120 +168,106 @@
     }
 
     .portada-luna {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.8rem; margin-bottom: 0.8rem;
       animation: flotar 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px rgba(255,200,150,0.6));
+      filter: drop-shadow(0 0 18px rgba(240,180,220,0.5));
     }
 
     .portada-titulo {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 7vw, 3.2rem);
-      color: #ffd6ec;
+      font-size: clamp(1.8rem, 6.5vw, 3rem);
+      color: #f7d6e8;
       text-align: center;
-      line-height: 1.3;
-      margin-bottom: 0.4rem;
-      text-shadow: 0 0 40px rgba(255,100,180,0.6);
+      line-height: 1.35;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 0 35px rgba(210,130,180,0.5);
     }
 
     .portada-corazon {
-      font-size: 1.5rem;
-      margin: 0.5rem 0;
-      animation: pulse-heart 1.5s ease-in-out infinite;
+      font-size: 1.4rem; margin: 0.5rem 0;
+      animation: pulse-heart 1.6s ease-in-out infinite;
     }
 
     @keyframes pulse-heart {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
+      50% { transform: scale(1.28); }
     }
 
     .portada-sub {
-      font-size: clamp(0.85rem, 3vw, 1rem);
-      color: #cc88bb;
+      font-family: 'Playfair Display', serif;
       font-style: italic;
+      font-size: clamp(0.82rem, 2.8vw, 0.98rem);
+      color: #c9a0bc;
       margin-bottom: 2rem;
       text-align: center;
+      max-width: 320px;
+      line-height: 1.7;
     }
 
-    /* LISTÓN DE REGALO */
+    /* LISTÓN */
     .ribbon-btn-wrap {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 1.2rem;
+      display: inline-flex; flex-direction: column; align-items: center;
+      margin-bottom: 1.4rem;
     }
 
     .ribbon-top {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 0;
+      display: flex; align-items: flex-end; justify-content: center;
       margin-bottom: -2px;
     }
 
     .ribbon-loop {
-      width: 38px;
-      height: 26px;
+      width: 36px; height: 24px;
       border-radius: 50% 50% 0 0;
-      border: 3px solid #e84393;
+      border: 2.5px solid #d97aaa;
       border-bottom: none;
-      background: rgba(232,67,147,0.15);
+      background: rgba(210,130,170,0.12);
     }
 
     .ribbon-knot {
-      width: 14px;
-      height: 14px;
-      background: #e84393;
-      border-radius: 50%;
-      margin-bottom: 0;
-      box-shadow: 0 0 10px rgba(232,67,147,0.6);
+      width: 13px; height: 13px;
+      background: #d97aaa; border-radius: 50%;
+      box-shadow: 0 0 10px rgba(210,130,170,0.5);
       z-index: 1;
     }
 
     .btn-abrir {
-      background: linear-gradient(135deg, #e84393, #c0206a);
-      color: white;
-      border: none;
-      padding: 0.95rem 2.8rem;
+      background: linear-gradient(135deg, #d97aaa, #b85a8a);
+      color: white; border: none;
+      padding: 0.95rem 2.6rem;
       border-radius: 12px;
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       font-family: 'Playfair Display', serif;
       cursor: pointer;
-      box-shadow: 0 4px 30px rgba(232,67,147,0.55);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 28px rgba(185,100,150,0.4);
+      position: relative; overflow: hidden;
       transition: transform 0.2s;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+      max-width: 300px;
+      text-align: center;
     }
 
     .btn-abrir::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
     }
 
-    /* CINTAS VERTICALES DEL LISTÓN */
     .ribbon-v {
-      position: absolute;
-      top: 26px;
-      width: 3px;
-      height: calc(100% - 26px);
-      background: #e84393;
-      opacity: 0.7;
+      position: absolute; top: 24px;
+      width: 2.5px; height: calc(100% - 24px);
+      background: #d97aaa; opacity: 0.6;
     }
-    .ribbon-v.left { left: calc(50% - 24px); }
-    .ribbon-v.right { right: calc(50% - 24px); }
+    .ribbon-v.left { left: calc(50% - 22px); }
+    .ribbon-v.right { right: calc(50% - 22px); }
 
-    .btn-abrir:hover { transform: scale(1.06); }
+    .btn-abrir:hover { transform: scale(1.05); }
     .btn-abrir:active { transform: scale(0.97); }
 
     .portada-firma {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: clamp(0.85rem, 2.8vw, 1rem);
-      color: #ffaacc;
+      font-size: clamp(0.82rem, 2.8vw, 0.95rem);
+      color: #e0b0cc;
       margin-top: 0.2rem;
       text-align: center;
     }
@@ -324,36 +276,29 @@
     .page-foto { background: #0d0008; }
 
     .foto-wrapper {
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 100%; max-width: 400px;
+      display: flex; flex-direction: column; align-items: center;
     }
 
     .foto-frame {
-      width: 100%;
-      height: 52vh;
-      border-radius: 20px 20px 0 0;
-      overflow: hidden;
-      box-shadow: 0 8px 50px rgba(232,67,147,0.25);
-      border: 1.5px solid rgba(232,67,147,0.35);
+      width: 100%; height: 50vh;
+      border-radius: 20px 20px 0 0; overflow: hidden;
+      box-shadow: 0 8px 45px rgba(185,100,150,0.22);
+      border: 1.5px solid rgba(210,130,170,0.3);
       border-bottom: none;
     }
 
     .foto-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
     }
 
     .foto-mensaje {
       width: 100%;
-      background: rgba(232,67,147,0.08);
-      border: 1.5px solid rgba(232,67,147,0.35);
+      background: rgba(210,130,170,0.07);
+      border: 1.5px solid rgba(210,130,170,0.3);
       border-top: none;
-      padding: 1.2rem 1.5rem 1.4rem;
+      padding: 1.2rem 1.5rem 1.5rem;
       border-radius: 0 0 20px 20px;
       text-align: center;
     }
@@ -361,146 +306,125 @@
     .foto-mensaje p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: clamp(0.9rem, 3.2vw, 1.05rem);
-      color: #ffd6ec;
-      line-height: 1.8;
+      font-size: clamp(0.85rem, 3vw, 1rem);
+      color: #f7d6e8;
+      line-height: 1.85;
     }
 
-    .foto-emoji { font-size: 1.3rem; margin-top: 0.4rem; }
+    .foto-emoji { font-size: 1.2rem; margin-top: 0.5rem; }
 
     /* ===================== PÁGINA FINAL ===================== */
     #page4 {
-      background: radial-gradient(ellipse at 50% 40%, #5a0038 0%, #0d0008 70%);
+      background: radial-gradient(ellipse at 50% 40%, #4a0030 0%, #0d0008 70%);
       cursor: pointer;
     }
 
     .cierre-foto {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #e84393;
-      box-shadow: 0 0 0 6px rgba(232,67,147,0.15), 0 0 40px rgba(232,67,147,0.4);
+      width: 145px; height: 145px;
+      border-radius: 50%; overflow: hidden;
+      border: 3px solid #d97aaa;
+      box-shadow: 0 0 0 6px rgba(210,130,170,0.15), 0 0 40px rgba(185,100,150,0.35);
       margin-bottom: 1.2rem;
       animation: glow-foto 2.5s ease-in-out infinite;
-      cursor: pointer;
+      flex-shrink: 0;
     }
 
     @keyframes glow-foto {
-      0%, 100% { box-shadow: 0 0 0 6px rgba(232,67,147,0.15), 0 0 40px rgba(232,67,147,0.4); }
-      50% { box-shadow: 0 0 0 10px rgba(232,67,147,0.2), 0 0 60px rgba(232,67,147,0.6); }
+      0%, 100% { box-shadow: 0 0 0 6px rgba(210,130,170,0.12), 0 0 35px rgba(185,100,150,0.3); }
+      50% { box-shadow: 0 0 0 10px rgba(210,130,170,0.2), 0 0 55px rgba(185,100,150,0.5); }
     }
 
     .cierre-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
     .cierre-titulo {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 6vw, 2.4rem);
-      color: #ffd6ec;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      color: #f7d6e8;
       text-align: center;
-      margin-bottom: 0.6rem;
-      text-shadow: 0 0 30px rgba(255,100,180,0.5);
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 25px rgba(210,130,180,0.4);
     }
 
     .cierre-frase {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: clamp(0.9rem, 3vw, 1.05rem);
-      color: #cc88bb;
+      font-size: clamp(0.82rem, 2.8vw, 0.97rem);
+      color: #c9a0bc;
       text-align: center;
-      line-height: 1.7;
-      margin-bottom: 0.3rem;
+      line-height: 1.85;
       max-width: 300px;
+      margin: 0 auto 0.5rem;
     }
 
-    .cierre-firma { font-size: 0.85rem; color: #e84393; margin-top: 0.5rem; }
+    .cierre-firma {
+      font-size: 0.85rem; color: #d97aaa; margin-top: 0.6rem;
+      font-family: 'Playfair Display', serif; font-style: italic;
+    }
 
     .corazones {
-      font-size: 2.2rem;
+      font-size: 2rem;
       animation: pulse-heart 1.5s ease-in-out infinite;
       margin-top: 0.8rem;
     }
 
     .tap-hint-final {
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      color: rgba(255,150,200,0.35);
+      margin-top: 0.9rem;
+      font-size: 0.72rem;
+      color: rgba(210,160,190,0.35);
       font-style: italic;
-      animation: pulse-hint 2s ease-in-out infinite;
+      animation: pulse-hint 2.5s ease-in-out infinite;
     }
 
     @keyframes pulse-hint {
       0%, 100% { opacity: 0.35; }
-      50% { opacity: 0.7; }
+      50% { opacity: 0.65; }
     }
 
     /* ===================== NAVEGACIÓN ===================== */
     .nav-arrows {
-      position: fixed;
-      bottom: 3.8rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 2rem;
-      z-index: 10;
+      position: fixed; bottom: 3.8rem;
+      left: 50%; transform: translateX(-50%);
+      display: flex; gap: 2rem; z-index: 10;
     }
 
     .nav-btn {
-      background: rgba(232,67,147,0.15);
-      border: 1px solid rgba(232,67,147,0.35);
-      color: #ffd6ec;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: rgba(210,130,170,0.12);
+      border: 1px solid rgba(210,130,170,0.3);
+      color: #f7d6e8;
+      width: 44px; height: 44px; border-radius: 50%;
+      font-size: 1.2rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       transition: background 0.2s, transform 0.15s;
     }
 
-    .nav-btn:hover { background: rgba(232,67,147,0.3); transform: scale(1.1); }
+    .nav-btn:hover { background: rgba(210,130,170,0.28); transform: scale(1.1); }
     .nav-btn:active { transform: scale(0.93); }
     .nav-btn:disabled { opacity: 0.2; cursor: default; }
 
     .page-dots {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
+      position: fixed; bottom: 2rem;
+      left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 10;
     }
 
     .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,150,200,0.25);
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(210,160,190,0.22);
       transition: all 0.4s;
     }
 
-    .dot.active { background: #e84393; transform: scale(1.4); }
+    .dot.active { background: #d97aaa; transform: scale(1.4); }
 
     .page-num {
-      position: fixed;
-      top: 1.2rem;
-      right: 1.5rem;
-      color: rgba(255,150,200,0.35);
-      font-size: 0.75rem;
-      font-style: italic;
-      z-index: 10;
+      position: fixed; top: 1.2rem; right: 1.5rem;
+      color: rgba(210,160,190,0.3);
+      font-size: 0.72rem; font-style: italic; z-index: 10;
     }
 
     /* ===================== PÉTALOS ===================== */
     .petal {
-      position: fixed;
-      pointer-events: none;
-      font-size: 22px;
-      animation: fall-petal linear forwards;
-      z-index: 999;
+      position: fixed; pointer-events: none; font-size: 21px;
+      animation: fall-petal linear forwards; z-index: 999;
     }
 
     @keyframes fall-petal {
@@ -517,7 +441,7 @@
 <!-- PANTALLA CONTRASEÑA -->
 <div id="lock-screen">
   <div class="lock-icon">🌸</div>
-  <h2 class="lock-title">Para la niña con los ojos más bonitos del universo</h2>
+  <h2 class="lock-title">Para esos ojitos de Capulí que aparecieron en una noche cualquiera… y terminaron convirtiéndose en mi lugar favorito. ♡</h2>
   <p class="lock-sub">Pon el nombre de quien nos acompaña a mimir</p>
   <input class="lock-input" id="pass-input" type="text" placeholder="escribe aquí..." maxlength="10" autocomplete="off"/>
   <button class="lock-btn" onclick="checkPass()">Entrar 💖</button>
@@ -534,7 +458,6 @@
     <div class="portada-luna">🌙</div>
     <h1 class="portada-titulo">Para mis ojitos<br>de Capulí</h1>
     <div class="portada-corazon">💖</div>
-    <p class="portada-sub">Un libro solo para ti, Treyzi ✨</p>
 
     <div class="ribbon-btn-wrap">
       <div class="ribbon-top">
@@ -545,7 +468,7 @@
       <div style="position:relative;">
         <div class="ribbon-v left"></div>
         <div class="ribbon-v right"></div>
-        <button class="btn-abrir" onclick="nextPage()">Ábrelo 🎀</button>
+        <button class="btn-abrir" onclick="nextPage()">Qué curioso que dos personas que ni siquiera debían estar en aquella fiesta… terminaran encontrándose para cambiarse la vida mutuamente ✨</button>
       </div>
     </div>
 
@@ -559,7 +482,7 @@
         <img src="FOTO_TRE_1.jpeg" alt="Nosotros"/>
       </div>
       <div class="foto-mensaje">
-        <p>"Gracias por cada momento a tu lado... cada uno se quedó grabado aquí."</p>
+        <p>"Existen números infinitos imposibles de contar… aun así, ninguno alcanza a medir lo agradecido que me siento por compartir mi vida contigo." ∞</p>
         <div class="foto-emoji">🥰</div>
       </div>
     </div>
@@ -572,7 +495,7 @@
         <img src="FOTO_TRE_2.jpeg" alt="Treyzi con flores"/>
       </div>
       <div class="foto-mensaje">
-        <p>"Eres lo más bonito que me pasó. Mi lugar favorito en el mundo eres tú."</p>
+        <p>"Si pudiera volver al pasado, regresaría exactamente a aquella fiesta donde empezó todo… no para cambiar algo, sino solo para volver a encontrarte otra vez." 🌙</p>
         <div class="foto-emoji">🌺</div>
       </div>
     </div>
@@ -584,15 +507,15 @@
       <img src="FOTO_TRE_3.jpeg" alt="Treyzi"/>
     </div>
     <h2 class="cierre-titulo">¡Feliz cumpleaños<br>mi amor! 🎂</h2>
-    <p class="cierre-frase">"Te amo hoy, mañana<br>y todos los días que siguen."</p>
-    <p class="cierre-firma">— Alex 💌</p>
+    <p class="cierre-frase">"Hace cinco años coincidimos en un lugar al que ninguno debía ir… y desde entonces entendí que a veces el destino tiene maneras extrañas de presentarte a la persona correcta.<br><br>Hoy, en tu cumpleaños, solo quiero agradecerle a la vida por aquella noche… porque me llevó hasta ti." ❤️</p>
+    <p class="cierre-frase" style="margin-top:0.5rem; color:#d97aaa;">Feliz cumpleaños, mis ojitos de Capulí.</p>
+    <p class="cierre-firma">— Alex</p>
     <div class="corazones">💖 💕 💖</div>
     <p class="tap-hint-final">toca para más flores 🌸</p>
   </div>
 
 </div>
 
-<!-- FLECHAS -->
 <div class="nav-arrows">
   <button class="nav-btn" id="btn-prev" onclick="prevPage()" disabled>‹</button>
   <button class="nav-btn" id="btn-next" onclick="nextPage()">›</button>
@@ -630,7 +553,7 @@
     s.textContent = starChars[Math.floor(Math.random() * starChars.length)];
     s.style.left = Math.random() * 100 + '%';
     s.style.top = Math.random() * 100 + '%';
-    s.style.color = '#ffd6ec';
+    s.style.color = '#f7d6e8';
     s.style.animationDuration = (2 + Math.random() * 3) + 's';
     s.style.animationDelay = (Math.random() * 3) + 's';
     sp.appendChild(s);
@@ -688,10 +611,7 @@
   function nextPage() { goTo(current + 1, 'next'); }
   function prevPage() { goTo(current - 1, 'prev'); }
 
-  // TOQUE EN PÁGINA FINAL → más flores
-  function handleFinalTap() {
-    spawnPetals(22);
-  }
+  function handleFinalTap() { spawnPetals(22); }
 
   function updateUI() {
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
